@@ -2,3 +2,21 @@
     text-align: center;
     margin-top: 50px;
 }
+
+.show{
+    height:500px;
+    overflow-y: auto;
+    
+}
+
+#employee_button{
+    margin-right: 30px;
+    width:200px;
+    margin-top: 20px;
+}
+
+#table{
+    color:grey;
+    margin-bottom:20px;
+    margin-top:20px;
+}

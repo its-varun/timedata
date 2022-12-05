@@ -49,6 +49,26 @@ con.connect(function(err) {
     });
   });
 
+  app.post('/updateData',(req, res) => {
+    let firstname= req.body.firstName;
+    let lastname=req.body.lastName;
+    let email=req.body.email;
+    let mobile=req.body.mobile;
+    let position=req.body.position;
+    let age=req.body.age;
+    let address=req.body.address;
+    let city=req.body.city;
+    let state=req.body.state;
+    let zipcode=req.body.zipcode;
+    let id=req.body.id;
+    
+    let query = con.query("UPDATE users SET FIRSTNAME = ?, LASTNAME = ?, EMAIL = ?, MOBILE = ?, POSITION = ?, AGE = ?, ADDRESS = ?, CITY = ?, STATE = ?, ZIPCODE = ?  WHERE ID = ?", [firstname,lastname,email,mobile,position,age,address,city,state,zipcode,id],(err, results) => {
+      if(err){
+        res.send(JSON.stringify({"status": 204, "error": null, "response": results}));
+      }
+      res.send(JSON.stringify({"status": 200, "error": null, "response": results}));
+    });
+  });
 
   app.get('/showData',(req, res) => {
     let sql = "SELECT * FROM USERS";
@@ -56,15 +76,20 @@ con.connect(function(err) {
       if(err){
         res.send(JSON.stringify());
       }
-      console.log(results);
+      // console.log(results);
       res.send(JSON.stringify(results));
     });
-    // if (err) throw err;
-    // con.query("SELECT * FROM users", function (err, result, fields) {
-    // if (err) throw err;
-    //   console.log(result);
-    //   res.send(JSON.stringify(result));
-    // })
+  });
+
+  app.get('/showRowData',(req, res) => {
+    let id=req.body.id;
+    let query = con.query("SELECT * FROM USERS WHERE ID = ?",[id], (err, results) => {
+      if(err){
+        res.send(JSON.stringify());
+      }
+      // console.log(results);
+      res.send(JSON.stringify(results));
+    });
   });
 
 const port = 5000

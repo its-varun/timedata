@@ -17,6 +17,9 @@ function Navbar() {
             <li class="nav-item">
                 <Link to="/adduser" class="nav-link" href="#">Add</Link>
             </li>
+            <li class="nav-item">
+                <Link to="/update" class="nav-link" href="#">Update</Link>
+            </li>
             </ul>
         </div>
         </nav>

@@ -26,19 +26,23 @@ function Home() {
     <>
         <Navbar/>
         <div className='body'>
-            <h3>Employee working :{len}</h3>
+            <h3>Employee working :<b> {len}</b></h3>
             <h4>
 
             </h4>
             <Link to="/adduser">
-                <button type="button" class="btn btn-outline-secondary">Add Employee</button>
+                <button type="button" class="btn btn-outline-secondary" id='employee_button'>Add Employee</button>
+            </Link>
+            <Link to="/update">
+                <button type="button" class="btn btn-outline-secondary"  id='employee_button'>Update Employee</button>
             </Link>
             <main className="container my-5">
-              <h1 className="text-primary text-center">Current Employed</h1>
+              <h1 className=" text-center" id="table">Details of Employee</h1>
+              <div className='show'>
               <table className="table table-dark">
                 <thead>
                   <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">Employee Id</th>
                     <th scope="col">First Name</th>
                     <th scope="col">Second Name</th>
                     <th scope="col">Email Id</th>
@@ -93,6 +97,7 @@ function Home() {
                     }
                 </tbody>
               </table>
+              </div>
             </main>
         </div>
     </>
